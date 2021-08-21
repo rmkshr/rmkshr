@@ -1,6 +1,6 @@
 package com.spring.security.apisecurity.security;
 
-import com.spring.security.apisecurity.filter.CustomAuthFilter;
+import com.spring.security.apisecurity.filter.CustomAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,16 +28,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-     CustomAuthFilter customAuthFilter = new CustomAuthFilter(authenticationManagerBean());
-     customAuthFilter.setFilterProcessesUrl("/apiv3/login");
+     CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean());
+     customAuthenticationFilter.setFilterProcessesUrl("/apiv3/login");
      http.csrf().disable();
      http.sessionManagement().sessionCreationPolicy(STATELESS);
      http.authorizeRequests().antMatchers("/apiv3/login/**").permitAll();
      http.authorizeRequests().antMatchers(GET, "/apiv3/**").hasAuthority("ROLE_SUPER_ADMIN");
      http.authorizeRequests().antMatchers(POST, "/apiv3/**").hasAuthority("ROLE_SUPER_ADMIN");
      http.authorizeRequests().anyRequest().authenticated();
-     http.addFilter(customAuthFilter);
-   //  http.addFilter(new CustomAuthFilter(authenticationManagerBean()));
+     http.addFilter(customAuthenticationFilter);
+   //  http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
     }
 
     @Bean
