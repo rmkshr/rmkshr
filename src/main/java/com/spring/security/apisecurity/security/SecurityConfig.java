@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.POST;
 import static org.springframework.security.config.http.SessionCreationPolicy.*;
 
 @Configuration @EnableWebSecurity @RequiredArgsConstructor
@@ -26,10 +28,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+     CustomAuthFilter customAuthFilter = new CustomAuthFilter(authenticationManagerBean());
+     customAuthFilter.setFilterProcessesUrl("/apiv3/login");
      http.csrf().disable();
      http.sessionManagement().sessionCreationPolicy(STATELESS);
-     http.authorizeRequests().anyRequest().permitAll();
-     http.addFilter(new CustomAuthFilter(authenticationManagerBean()));
+     http.authorizeRequests().antMatchers("/apiv3/login/**").permitAll();
+     http.authorizeRequests().antMatchers(GET, "/apiv3/**").hasAuthority("ROLE_SUPER_ADMIN");
+     http.authorizeRequests().antMatchers(POST, "/apiv3/**").hasAuthority("ROLE_SUPER_ADMIN");
+     http.authorizeRequests().anyRequest().authenticated();
+     http.addFilter(customAuthFilter);
+   //  http.addFilter(new CustomAuthFilter(authenticationManagerBean()));
     }
 
     @Bean
