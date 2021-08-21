@@ -1,6 +1,7 @@
 package com.spring.security.apisecurity.security;
 
 import com.spring.security.apisecurity.filter.CustomAuthenticationFilter;
+import com.spring.security.apisecurity.filter.CustomAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
@@ -32,11 +34,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      customAuthenticationFilter.setFilterProcessesUrl("/apiv3/login");
      http.csrf().disable();
      http.sessionManagement().sessionCreationPolicy(STATELESS);
-     http.authorizeRequests().antMatchers("/apiv3/login/**").permitAll();
+     http.authorizeRequests().antMatchers("/apiv3/login/**", "/apiv3/refreshtoken/**").permitAll();
      http.authorizeRequests().antMatchers(GET, "/apiv3/**").hasAuthority("ROLE_SUPER_ADMIN");
      http.authorizeRequests().antMatchers(POST, "/apiv3/**").hasAuthority("ROLE_SUPER_ADMIN");
      http.authorizeRequests().anyRequest().authenticated();
      http.addFilter(customAuthenticationFilter);
+     http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
    //  http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
     }
 
