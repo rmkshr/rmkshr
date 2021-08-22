@@ -1,7 +1,7 @@
-package com.spring.security.apisecurity.service;
+package com.spring.apisecurity.service;
 
-import com.spring.security.apisecurity.domain.ApiUser;
-import com.spring.security.apisecurity.domain.Role;
+import com.spring.apisecurity.domain.ApiUser;
+import com.spring.apisecurity.domain.Role;
 
 import java.util.List;
 

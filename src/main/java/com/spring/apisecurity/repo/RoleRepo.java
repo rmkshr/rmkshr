@@ -1,6 +1,6 @@
-package com.spring.security.apisecurity.repo;
+package com.spring.apisecurity.repo;
 
-import com.spring.security.apisecurity.domain.Role;
+import com.spring.apisecurity.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

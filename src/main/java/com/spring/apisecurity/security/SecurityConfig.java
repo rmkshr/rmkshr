@@ -1,8 +1,8 @@
-package com.spring.security.apisecurity.security;
+package com.spring.apisecurity.security;
 
-import com.spring.security.apisecurity.filter.CustomAuthenticationFilter;
-import com.spring.security.apisecurity.filter.CustomAuthorizationFilter;
-import com.spring.security.apisecurity.utils.Constants;
+import com.spring.apisecurity.filter.CustomAuthenticationFilter;
+import com.spring.apisecurity.filter.CustomAuthorizationFilter;
+import com.spring.apisecurity.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

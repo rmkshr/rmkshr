@@ -1,10 +1,10 @@
-package com.spring.security.apisecurity.service;
+package com.spring.apisecurity.service;
 
-import com.spring.security.apisecurity.domain.ApiUser;
-import com.spring.security.apisecurity.domain.Role;
-import com.spring.security.apisecurity.repo.RoleRepo;
-import com.spring.security.apisecurity.repo.UserRepo;
-import com.spring.security.apisecurity.utils.Constants;
+import com.spring.apisecurity.domain.ApiUser;
+import com.spring.apisecurity.domain.Role;
+import com.spring.apisecurity.repo.UserRepo;
+import com.spring.apisecurity.repo.RoleRepo;
+import com.spring.apisecurity.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
