@@ -5,6 +5,9 @@ import com.spring.security.apisecurity.domain.Role;
 
 import java.util.List;
 
+/**
+ * @author ramkishore
+ */
 public interface UserService {
     ApiUser saveUser (ApiUser user);
     Role saveRole (Role role);

@@ -35,28 +35,13 @@ public class ApisecurityApplication {
 			userService.saveRole(new Role(null, "ROLE_PROXY"));
 
 			userService.saveUser(new ApiUser(null, "Ramkishore", "rmkshr", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "kishore", "kishore", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "vishnu", "vishnu", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "Linus", "linus", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "Suganya", "suganya", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "rootuser", "rootuser", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "denzel", "denzel", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "dave", "dave", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "jack", "jack", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "jill", "jill", "letmein", new ArrayList<Role>()));
-			userService.saveUser(new ApiUser(null, "hello", "hello", "letmein", new ArrayList<Role>()));
 
 			userService.addRoleToApiUser("rmkshr","ROLE_SUPER_ADMIN");
+			userService.addRoleToApiUser("rmkshr","ROLE_USER");
+			userService.addRoleToApiUser("rmkshr","ROLE_ADMIN");
 			userService.addRoleToApiUser("rmkshr","ROLE_GUEST");
 			userService.addRoleToApiUser("rmkshr","ROLE_PROXY");
-			userService.addRoleToApiUser("rmkshr","ROLE_ADMIN");
-			userService.addRoleToApiUser("rmkshr","ROLE_USER");
-			userService.addRoleToApiUser("rmkshr","ROLE_ADMIN");
-			userService.addRoleToApiUser("rmkshr","ROLE_USER");
-			userService.addRoleToApiUser("rmkshr","ROLE_PROXY");
-			userService.addRoleToApiUser("rmkshr","ROLE_PROXY");
-			userService.addRoleToApiUser("rmkshr","ROLE_PROXY");
-			userService.addRoleToApiUser("rmkshr","ROLE_ADMIN");
+
 		};
 	}
 }

@@ -8,15 +8,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.security.apisecurity.domain.ApiUser;
 import com.spring.security.apisecurity.domain.Role;
 import com.spring.security.apisecurity.service.UserService;
+import com.spring.security.apisecurity.utils.Constants;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -24,15 +19,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URI;
-import java.net.http.HttpResponse;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.Arrays.stream;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.HttpStatus.FORBIDDEN;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+
+/**
+ * API Spring Security Module Controller class.
+ * @author ramkishore
+ */
 @RestController
 @RequestMapping("/apiv3")
 @RequiredArgsConstructor
@@ -40,36 +38,61 @@ public class ApiController {
 
     private final UserService userService;
 
+    /**
+     * Get all user api.
+     * @return Response ok with all users.
+     */
     @GetMapping("/getuser")
     public ResponseEntity getUser() {
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
+    /**
+     * Save user api.
+     * @param user
+     * @return save user response, with user data.
+     */
     @PostMapping("/user/save")
     public ResponseEntity<ApiUser> saveUser(@RequestBody ApiUser user) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/user/save").toUriString());
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
 
+    /**
+     * Save role api.
+     * @param role
+     * @return save role response, with role data.
+     */
     @PostMapping("/role/save")
     public ResponseEntity<Role> saveRole(@RequestBody Role role) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/role/save").toUriString());
         return ResponseEntity.created(uri).body(userService.saveRole(role));
     }
 
+    /**
+     * Assign a role to a user.
+     * @param roleToUserform
+     * @return response ok.
+     */
     @PostMapping("/save/role/to/user")
-    public ResponseEntity<?> saveRoleToUser(@RequestBody RoleToUserform roleToUserform) {
+    public ResponseEntity<?> saveRoleToUser(@RequestBody RoleToUserForm roleToUserform) {
         userService.addRoleToApiUser(roleToUserform.getUserName(), roleToUserform.getRoleName());
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * Api to generate access token using the refresh token and return both.
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     @GetMapping("/refreshtoken")
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String authorizationHeader = request.getHeader(AUTHORIZATION);
-        if(authorizationHeader != null && authorizationHeader.startsWith("key ")){
+        if(authorizationHeader != null && authorizationHeader.startsWith(Constants.KEY_SPACE)){
             try{
-                String refresh_token = authorizationHeader.substring("key ".length());
-                Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
+                String refresh_token = authorizationHeader.substring(Constants.KEY_SPACE.length());
+                Algorithm algorithm = Algorithm.HMAC256(Constants.SECRET.getBytes());
                 JWTVerifier jwtVerifier = JWT.require(algorithm).build();
                 DecodedJWT decodedJWT = jwtVerifier.verify(refresh_token);
                 String userName = decodedJWT.getSubject();
@@ -78,29 +101,29 @@ public class ApiController {
                         .withSubject(apiUser.getUserName())
                         .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
                         .withIssuer(request.getRequestURL().toString())
-                        .withClaim("roles", apiUser.getRoles().stream().map(Role::getName).collect(Collectors.toList()))
+                        .withClaim(Constants.ROLES, apiUser.getRoles().stream().map(Role::getName).collect(Collectors.toList()))
                         .sign(algorithm);
                 Map<String, String> tokenMap = new HashMap<>();
-                tokenMap.put("access_token", access_token);
-                tokenMap.put("refresh_token", refresh_token);
+                tokenMap.put(Constants.ACCESS_TOKEN, access_token);
+                tokenMap.put(Constants.REFRESH_TOKEN, refresh_token);
                 response.setContentType(APPLICATION_JSON_VALUE);
                 new ObjectMapper().writeValue(response.getOutputStream(), tokenMap);
             }catch (Exception exception){
-                response.setHeader("error", exception.getMessage());
+                response.setHeader(Constants.ERROR, exception.getMessage());
                 response.setStatus(FORBIDDEN.value());
                 Map<String, String> error = new HashMap<>();
-                error.put("error_message", exception.getMessage());
+                error.put(Constants.ERROR_MESSAGE, exception.getMessage());
                 response.setContentType(APPLICATION_JSON_VALUE);
                 new ObjectMapper().writeValue(response.getOutputStream(), error);
             }
         } else {
-            throw new RuntimeException("Refresh token is missing");
+            throw new RuntimeException(Constants.TOKEN_MISSING_EXCEPTION);
         }
     }
 
 }
 @Data
-class RoleToUserform {
+class RoleToUserForm {
     private String userName;
     private String roleName;
 }
