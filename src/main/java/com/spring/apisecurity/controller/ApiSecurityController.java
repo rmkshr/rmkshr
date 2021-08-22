@@ -1,4 +1,4 @@
-package com.spring.apisecurity.api;
+package com.spring.apisecurity.controller;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
