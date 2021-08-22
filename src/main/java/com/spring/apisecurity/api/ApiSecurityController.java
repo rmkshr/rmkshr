@@ -34,7 +34,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping("/apiv3")
 @RequiredArgsConstructor
-public class ApiController {
+public class ApiSecurityController {
 
     private final UserService userService;
 
