@@ -10,6 +10,10 @@ import java.util.Collection;
 
 import static javax.persistence.GenerationType.AUTO;
 
+/***
+ * @author ramkishore
+ * User entity class.
+ */
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
 public class ApiUser {
     @Id @GeneratedValue(strategy = AUTO)

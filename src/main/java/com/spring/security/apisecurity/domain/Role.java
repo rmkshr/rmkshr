@@ -10,6 +10,10 @@ import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.AUTO;
 
+/**
+ * @author ramkishore
+ * Role entity class.
+ */
 @Entity
 @Data
 @NoArgsConstructor
