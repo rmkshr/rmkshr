@@ -1,8 +1,8 @@
-package com.spring.security.apisecurity;
+package com.spring;
 
-import com.spring.security.apisecurity.domain.ApiUser;
-import com.spring.security.apisecurity.domain.Role;
-import com.spring.security.apisecurity.service.UserService;
+import com.spring.apisecurity.domain.ApiUser;
+import com.spring.apisecurity.domain.Role;
+import com.spring.apisecurity.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +13,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.ArrayList;
 
 @SpringBootApplication
-public class ApisecurityApplication {
+public class SpringApiEngine {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApisecurityApplication.class, args);
+		SpringApplication.run(SpringApiEngine.class, args);
 	}
 
 	@Bean

@@ -1,4 +1,4 @@
-package com.spring.security.apisecurity.domain;
+package com.spring.apisecurity.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

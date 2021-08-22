@@ -1,9 +1,9 @@
-package com.spring.security.apisecurity.filter;
+package com.spring.apisecurity.filter;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.security.apisecurity.utils.Constants;
+import com.spring.apisecurity.utils.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

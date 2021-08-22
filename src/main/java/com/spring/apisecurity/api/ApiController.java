@@ -1,14 +1,14 @@
-package com.spring.security.apisecurity.api;
+package com.spring.apisecurity.api;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.security.apisecurity.domain.ApiUser;
-import com.spring.security.apisecurity.domain.Role;
-import com.spring.security.apisecurity.service.UserService;
-import com.spring.security.apisecurity.utils.Constants;
+import com.spring.apisecurity.domain.ApiUser;
+import com.spring.apisecurity.domain.Role;
+import com.spring.apisecurity.service.UserService;
+import com.spring.apisecurity.utils.Constants;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.spring.security.apisecurity.utils;
+package com.spring.apisecurity.utils;
 
 
 public class Constants {
