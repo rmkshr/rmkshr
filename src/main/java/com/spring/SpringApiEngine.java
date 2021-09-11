@@ -27,21 +27,9 @@ public class SpringApiEngine {
 	@Bean
 	CommandLineRunner run (UserService userService) {
 		return args -> {
-
-			userService.saveRole(new Role(null, "ROLE_USER"));
 			userService.saveRole(new Role(null, "ROLE_ADMIN"));
-			userService.saveRole(new Role(null, "ROLE_SUPER_ADMIN"));
-			userService.saveRole(new Role(null, "ROLE_GUEST"));
-			userService.saveRole(new Role(null, "ROLE_PROXY"));
-
 			userService.saveUser(new ApiUser(null, "Ramkishore", "rmkshr", "letmein", new ArrayList<Role>()));
-
-			userService.addRoleToApiUser("rmkshr","ROLE_SUPER_ADMIN");
-			userService.addRoleToApiUser("rmkshr","ROLE_USER");
 			userService.addRoleToApiUser("rmkshr","ROLE_ADMIN");
-			userService.addRoleToApiUser("rmkshr","ROLE_GUEST");
-			userService.addRoleToApiUser("rmkshr","ROLE_PROXY");
-
 		};
 	}
 }

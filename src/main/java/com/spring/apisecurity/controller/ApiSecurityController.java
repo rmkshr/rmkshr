@@ -89,9 +89,11 @@ public class ApiSecurityController {
     @GetMapping("/refreshtoken")
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String authorizationHeader = request.getHeader(AUTHORIZATION);
-        if(authorizationHeader != null && authorizationHeader.startsWith(Constants.KEY_SPACE)){
+//        if(authorizationHeader != null && authorizationHeader.startsWith(Constants.KEY_SPACE)){
+        if(authorizationHeader != null){
             try{
-                String refresh_token = authorizationHeader.substring(Constants.KEY_SPACE.length());
+//                String refresh_token = authorizationHeader.substring(Constants.KEY_SPACE.length());
+                String refresh_token = authorizationHeader;
                 Algorithm algorithm = Algorithm.HMAC256(Constants.SECRET.getBytes());
                 JWTVerifier jwtVerifier = JWT.require(algorithm).build();
                 DecodedJWT decodedJWT = jwtVerifier.verify(refresh_token);
