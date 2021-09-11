@@ -2,8 +2,8 @@ package com.spring.apisecurity.service;
 
 import com.spring.apisecurity.domain.ApiUser;
 import com.spring.apisecurity.domain.Role;
-import com.spring.apisecurity.repo.UserRepo;
-import com.spring.apisecurity.repo.RoleRepo;
+import com.spring.apisecurity.repo.UserRepository;
+import com.spring.apisecurity.repo.RoleRepository;
 import com.spring.apisecurity.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +25,8 @@ import java.util.List;
  */
 @Service @RequiredArgsConstructor @Transactional @Slf4j
 public class UserServiceImpl implements UserService, UserDetailsService {
-    private final UserRepo userRepo;
-    private final RoleRepo roleRepo;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
     /**
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public ApiUser saveUser(ApiUser user) {
         log.info(Constants.SAVE_USER_LOGGER, user.getName());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepo.save(user);
+        return userRepository.save(user);
     }
 
     /**
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public Role saveRole(Role role) {
         log.info(Constants.SAVE_ROLE_LOGGER, role.getName());
-        return roleRepo.save(role );
+        return roleRepository.save(role );
     }
 
     /**
@@ -60,8 +60,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public void addRoleToApiUser(String userName, String roleName) {
         log.info(Constants.SAVE_ROLE_TO_USER_LOGGER, roleName, userName);
-        ApiUser user = userRepo.findByUserName(userName);
-        Role role = roleRepo.findByName(roleName);
+        ApiUser user = userRepository.findByUserName(userName);
+        Role role = roleRepository.findByName(roleName);
         user.getRoles().add(role);
     }
 
@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public ApiUser getUser(String userName) {
         log.info(Constants.FETCHING_USER_LOGGER, userName);
-        return userRepo.findByUserName(userName);
+        return userRepository.findByUserName(userName);
     }
 
     /**
@@ -83,7 +83,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public List<ApiUser> getUsers() {
         log.info(Constants.FETCHING_ALL_USER_LOGGER);
-        return userRepo.findAll();
+        return userRepository.findAll();
     }
 
     /**
@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        ApiUser apiUser = userRepo.findByUserName(userName);
+        ApiUser apiUser = userRepository.findByUserName(userName);
         if(apiUser == null){
             log.error(Constants.USER_NOT_FOUND_LOGGER);
             throw new UsernameNotFoundException(Constants.USER_NOT_FOUND_LOGGER);
