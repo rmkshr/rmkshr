@@ -15,7 +15,7 @@ public class DataAccessController {
 
     DataAccessConfiguration dataAccessConfiguration;
 
-    public  String fetchAllData() throws IOException {
+    public String fetchAllData() throws IOException {
         XContentBuilder builder = XContentFactory.jsonBuilder();
         try {
             SearchResponse searchResponse = dataAccessConfiguration.prepareCient().search(dataAccessConfiguration.prepareSearchRequest(), RequestOptions.DEFAULT);
@@ -24,8 +24,7 @@ public class DataAccessController {
                 searchResponse.toXContent(builder, ToXContent.EMPTY_PARAMS);
                 builder.endObject();
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return !ObjectUtils.isEmpty(builder) ? builder.toString() : "";

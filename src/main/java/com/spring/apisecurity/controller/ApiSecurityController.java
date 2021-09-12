@@ -29,6 +29,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 /**
  * API Spring Security Module Controller class.
+ *
  * @author ramkishore
  */
 @RestController
@@ -40,6 +41,7 @@ public class ApiSecurityController {
 
     /**
      * Get all user api.
+     *
      * @return Response ok with all users.
      */
     @GetMapping("/getuser")
@@ -49,6 +51,7 @@ public class ApiSecurityController {
 
     /**
      * Save user api.
+     *
      * @param user
      * @return save user response, with user data.
      */
@@ -60,6 +63,7 @@ public class ApiSecurityController {
 
     /**
      * Save role api.
+     *
      * @param role
      * @return save role response, with role data.
      */
@@ -71,6 +75,7 @@ public class ApiSecurityController {
 
     /**
      * Assign a role to a user.
+     *
      * @param roleToUserform
      * @return response ok.
      */
@@ -82,6 +87,7 @@ public class ApiSecurityController {
 
     /**
      * Api to generate access token using the refresh token and return both.
+     *
      * @param request
      * @param response
      * @throws IOException
@@ -90,8 +96,8 @@ public class ApiSecurityController {
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String authorizationHeader = request.getHeader(AUTHORIZATION);
 //        if(authorizationHeader != null && authorizationHeader.startsWith(Constants.KEY_SPACE)){
-        if(authorizationHeader != null){
-            try{
+        if (authorizationHeader != null) {
+            try {
 //                String refresh_token = authorizationHeader.substring(Constants.KEY_SPACE.length());
                 String refresh_token = authorizationHeader;
                 Algorithm algorithm = Algorithm.HMAC256(Constants.SECRET.getBytes());
@@ -110,7 +116,7 @@ public class ApiSecurityController {
                 tokenMap.put(Constants.REFRESH_TOKEN, refresh_token);
                 response.setContentType(APPLICATION_JSON_VALUE);
                 new ObjectMapper().writeValue(response.getOutputStream(), tokenMap);
-            }catch (Exception exception){
+            } catch (Exception exception) {
                 response.setHeader(Constants.ERROR, exception.getMessage());
                 response.setStatus(FORBIDDEN.value());
                 Map<String, String> error = new HashMap<>();
@@ -124,6 +130,7 @@ public class ApiSecurityController {
     }
 
 }
+
 @Data
 class RoleToUserForm {
     private String userName;

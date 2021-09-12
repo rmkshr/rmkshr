@@ -22,7 +22,9 @@ import static org.springframework.security.config.http.SessionCreationPolicy.*;
 /**
  * @author ramkishore.
  */
-@Configuration @EnableWebSecurity @RequiredArgsConstructor
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -34,26 +36,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Configure the authentication logic.
+     *
      * @param http
      * @throws Exception
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-     CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean());
-     customAuthenticationFilter.setFilterProcessesUrl("/apiv3/login");
-     http.csrf().disable();
-     http.sessionManagement().sessionCreationPolicy(STATELESS);
-     http.authorizeRequests().antMatchers("/apiv3/login/**", "/apiv3/refreshtoken/**").permitAll();
-     http.authorizeRequests().antMatchers(GET, "/apiv3/**").hasAuthority(Constants.ROLE_SUPER_ADMIN);
-     http.authorizeRequests().antMatchers(POST, "/apiv3/**").hasAuthority(Constants.ROLE_SUPER_ADMIN);
-     http.authorizeRequests().anyRequest().authenticated();
-     http.addFilter(customAuthenticationFilter);
-     http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
-   //  http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
+        CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean());
+        customAuthenticationFilter.setFilterProcessesUrl("/apiv3/login");
+        http.csrf().disable();
+        http.sessionManagement().sessionCreationPolicy(STATELESS);
+        http.authorizeRequests().antMatchers("/apiv3/login/**", "/apiv3/refreshtoken/**").permitAll();
+        http.authorizeRequests().antMatchers(GET, "/apiv3/**").hasAuthority(Constants.ROLE_SUPER_ADMIN);
+        http.authorizeRequests().antMatchers(POST, "/apiv3/**").hasAuthority(Constants.ROLE_SUPER_ADMIN);
+        http.authorizeRequests().anyRequest().authenticated();
+        http.addFilter(customAuthenticationFilter);
+        http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+        //  http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
     }
 
     /**
      * Return authentication manager bean.
+     *
      * @return
      * @throws Exception
      */
