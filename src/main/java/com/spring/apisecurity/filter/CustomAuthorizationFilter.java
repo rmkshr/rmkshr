@@ -36,6 +36,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
 
     /**
      * Method to get token and provide access based on the roles.
+     *
      * @param request
      * @param response
      * @param filterChain
@@ -44,13 +45,13 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if(request.getServletPath().equals("/apiv3/login") || request.getServletPath().equals("/apiv3/refreshtoken")){
+        if (request.getServletPath().equals("/apiv3/login") || request.getServletPath().equals("/apiv3/refreshtoken")) {
             filterChain.doFilter(request, response);
         } else {
             String authorizationHeader = request.getHeader(AUTHORIZATION);
 //            if(authorizationHeader != null && authorizationHeader.startsWith(Constants.KEY_SPACE)){
-            if(authorizationHeader != null){
-                try{
+            if (authorizationHeader != null) {
+                try {
 //                    String token = authorizationHeader.substring(Constants.KEY_SPACE.length());
                     String token = authorizationHeader;
                     Algorithm algorithm = Algorithm.HMAC256(Constants.SECRET.getBytes());
@@ -65,8 +66,8 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                     UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                             new UsernamePasswordAuthenticationToken(userName, null, authorities);
                     SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-                    filterChain.doFilter(request,response);
-                }catch (Exception exception){
+                    filterChain.doFilter(request, response);
+                } catch (Exception exception) {
                     log.error(Constants.ERROR_LOGGING_IN_LOGGEER, exception.getMessage());
                     response.setHeader(Constants.ERROR, exception.getMessage());
                     response.setStatus(FORBIDDEN.value());

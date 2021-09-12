@@ -14,9 +14,13 @@ import static javax.persistence.GenerationType.AUTO;
  * @author ramkishore
  * User entity class.
  */
-@Entity @Data @NoArgsConstructor @AllArgsConstructor
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ApiUser {
-    @Id @GeneratedValue(strategy = AUTO)
+    @Id
+    @GeneratedValue(strategy = AUTO)
     private Long id;
     private String name;
     private String userName;

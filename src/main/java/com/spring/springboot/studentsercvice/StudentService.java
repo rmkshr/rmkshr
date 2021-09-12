@@ -5,10 +5,9 @@ import com.spring.springboot.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
-import java.time.LocalDate;
-import java.time.Month;
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -27,7 +26,7 @@ public class StudentService {
 
     public void addNewStudent(Student student) {
         Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
-        if(studentOptional.isPresent()){
+        if (studentOptional.isPresent()) {
             throw new IllegalStateException("User Already Exist");
         }
         studentRepository.save(student);
@@ -35,9 +34,28 @@ public class StudentService {
 
     public void addNewStudentDetail(Student student) {
         Optional<List<Student>> studentOptionalList = studentRepository.findAllStudentByEmail(student.getEmail());
-        for(Student studentObject : studentOptionalList.get()){
+        for (Student studentObject : studentOptionalList.get()) {
             System.out.println(studentObject.toString());
         }
 
+    }
+
+    public void deleteStudent(Long studentId) {
+        if (!studentRepository.existsById(studentId)) {
+            throw new IllegalStateException("User does not exist");
+        }
+        studentRepository.deleteById(studentId);
+    }
+
+    @Transactional
+    public void updateStudent(Long studentId, String name, String email) {
+        Student student = studentRepository.findById(studentId).orElseThrow(() -> new IllegalStateException
+                ("student with id " + studentId + " does not exist"));
+        if (name != null && name.length() > 0 && !Objects.equals(student.getName(), name)) {
+            student.setName(name);
+        }
+        if (email != null && email.length() > 0 && !Objects.equals(student.getEmail(), email)) {
+            student.setEmail(email);
+        }
     }
 }

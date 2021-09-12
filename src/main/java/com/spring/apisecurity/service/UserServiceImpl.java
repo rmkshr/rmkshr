@@ -23,7 +23,10 @@ import java.util.List;
 /**
  * @author ramkishore.
  */
-@Service @RequiredArgsConstructor @Transactional @Slf4j
+@Service
+@RequiredArgsConstructor
+@Transactional
+@Slf4j
 public class UserServiceImpl implements UserService, UserDetailsService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -31,6 +34,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     /**
      * Save user method.
+     *
      * @param user
      * @return
      */
@@ -43,17 +47,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     /**
      * Save role method.
+     *
      * @param role
      * @return
      */
     @Override
     public Role saveRole(Role role) {
         log.info(Constants.SAVE_ROLE_LOGGER, role.getName());
-        return roleRepository.save(role );
+        return roleRepository.save(role);
     }
 
     /**
      * Add role to user method.
+     *
      * @param userName
      * @param roleName
      */
@@ -67,6 +73,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     /**
      * get user from database by username.
+     *
      * @param userName
      * @return
      */
@@ -78,6 +85,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     /**
      * get list of all users from database.
+     *
      * @return
      */
     @Override
@@ -88,6 +96,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     /**
      * Load user using the user name.
+     *
      * @param userName
      * @return
      * @throws UsernameNotFoundException
@@ -95,7 +104,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         ApiUser apiUser = userRepository.findByUserName(userName);
-        if(apiUser == null){
+        if (apiUser == null) {
             log.error(Constants.USER_NOT_FOUND_LOGGER);
             throw new UsernameNotFoundException(Constants.USER_NOT_FOUND_LOGGER);
         } else {
@@ -105,7 +114,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         apiUser.getRoles().forEach(role -> {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         });
-        return new User(apiUser.getUserName(), apiUser.getPassword(),  authorities);
+        return new User(apiUser.getUserName(), apiUser.getPassword(), authorities);
     }
 
 }

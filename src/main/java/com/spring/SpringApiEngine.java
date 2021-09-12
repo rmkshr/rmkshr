@@ -15,21 +15,21 @@ import java.util.ArrayList;
 @SpringBootApplication
 public class SpringApiEngine {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringApiEngine.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringApiEngine.class, args);
+    }
 
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	@Bean
-	CommandLineRunner run (UserService userService) {
-		return args -> {
-			userService.saveRole(new Role(null, "ROLE_ADMIN"));
-			userService.saveUser(new ApiUser(null, "Ramkishore", "rmkshr", "letmein", new ArrayList<Role>()));
-			userService.addRoleToApiUser("rmkshr","ROLE_ADMIN");
-		};
-	}
+    @Bean
+    CommandLineRunner run(UserService userService) {
+        return args -> {
+            userService.saveRole(new Role(null, "ROLE_ADMIN"));
+            userService.saveUser(new ApiUser(null, "Ramkishore", "rmkshr", "letmein", new ArrayList<Role>()));
+            userService.addRoleToApiUser("rmkshr", "ROLE_ADMIN");
+        };
+    }
 }

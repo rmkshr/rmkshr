@@ -13,18 +13,16 @@ import java.io.IOException;
 public class ApiController {
 
     @RequestMapping(value = "/check")
-    public String printMethod () {
+    public String printMethod() {
         return "DOCKER CONTAINER RUN CHECK";
     }
 
     @RequestMapping(value = "/info/movies")
-    public String getMovieInfo () throws IOException {
+    public String getMovieInfo() throws IOException {
         DataAccessController dataAccessController = new DataAccessController();
         String movieData = dataAccessController.fetchAllData();
         return movieData;
     }
-
-
 
 
 }
