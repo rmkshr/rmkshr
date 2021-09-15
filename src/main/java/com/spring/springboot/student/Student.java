@@ -22,23 +22,14 @@ public class Student {
             generator = "student_sequence"
     )
 
-    @Column(
-            name = "Student_Id",
-            unique = true,
-            updatable = false
-    )
     private Long id;
     @Column(
-            name = "Name",
-            nullable = false,
-            columnDefinition = "TEXT"
+            nullable = false
     )
     private String name;
     private LocalDate dob;
     @Column(
-            name = "Name",
-            nullable = false,
-            columnDefinition = "TEXT"
+            nullable = false
     )
     private String email;
 
