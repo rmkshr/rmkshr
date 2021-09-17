@@ -16,7 +16,7 @@ public class Main {
             new Person("Vihaan", MALE)
         );
 
-        //Imperative Approach
+        //IMPERATIVE APPROACH
         System.out.println("========Imperative Approach");
         List<Person> females = new ArrayList<>();
         for(Person person : people){
@@ -28,10 +28,10 @@ public class Main {
             System.out.println(female.toString());
         }
 
-        //Declarative approach
+        //DECLARATIVE APPROACH
         System.out.println("========Declarative approach");
 
-        //Predicate => Executes a boolean expression and returns result.
+        //PREDICATE => EXECUTES A BOOLEAN EXPRESSION AND RETURNS RESULT.
         Predicate<Person> personPredicate = person -> FEMALE.equals(person.gender);
 
         people.stream().filter(personPredicate)
