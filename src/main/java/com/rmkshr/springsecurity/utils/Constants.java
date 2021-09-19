@@ -19,7 +19,7 @@ public class Constants {
     public static final String USERNAME_LOGGER = "UserName is {}";
     public static final String PASSWORD_LOGGER = "Password is {}";
     public static final String ERROR_LOGGING_IN_LOGGEER = "Error Logging in : {}";
-    public static final String ROLE_SUPER_ADMIN = "ROLE_SUPER_ADMIN";
+    public static final String ROLE_ADMIN = "ROLE_ADMIN";
     public static final String SAVE_USER_LOGGER = "Saving new user {} to database";
     public static final String SAVE_ROLE_LOGGER = "Saving new role {} to database";
     public static final String SAVE_ROLE_TO_USER_LOGGER = "Saving new role {} to user {}";

@@ -9,8 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+
+import static com.rmkshr.springsecurity.utils.Constants.ROLE_ADMIN;
 
 @SpringBootApplication
 public class SpringApiEngine {
@@ -29,7 +32,7 @@ public class SpringApiEngine {
         return args -> {
             userService.saveRole(new Role(null, "ROLE_ADMIN"));
             userService.saveUser(new ApiUser(null, "Ramkishore", "rmkshr", "letmein", new ArrayList<Role>()));
-            userService.addRoleToApiUser("rmkshr", "ROLE_ADMIN");
+            userService.addRoleToApiUser("rmkshr", ROLE_ADMIN);
         };
     }
 }
