@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 import static com.rmkshr.functionalinterface.Main.Gender.FEMALE;
 import static com.rmkshr.functionalinterface.Main.Gender.MALE;
 
+/**
+ * @author Ramkishore
+ */
 public class Main {
 
     public static void main(String[] args) {

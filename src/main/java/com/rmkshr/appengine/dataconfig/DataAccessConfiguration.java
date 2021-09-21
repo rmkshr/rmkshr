@@ -7,6 +7,9 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 
+/**
+ * @author Ramkishore
+ */
 public class DataAccessConfiguration {
 
     public RestHighLevelClient prepareCient() {

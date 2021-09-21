@@ -2,7 +2,13 @@ package com.rmkshr.functionalinterface;
 
 import java.util.function.Predicate;
 
+/**
+ * @author Ramkishore
+ */
 public class _Predicate {
+
+    //DECLARATIVE APPROACH
+    static Predicate<String> validateMobilePredicate = mobileNumber -> mobileNumber.startsWith("91") && mobileNumber.length() == 12;
 
     public static void main(String[] args) {
         //IMPERATIVE APPROACH
@@ -20,9 +26,6 @@ public class _Predicate {
 
     //IMPERATIVE APPROACH
     static boolean validateMobileNumber(String mobileNumber) {
-        return mobileNumber.startsWith("91") && mobileNumber.length()==12;
+        return mobileNumber.startsWith("91") && mobileNumber.length() == 12;
     }
-
-    //DECLARATIVE APPROACH
-    static Predicate<String> validateMobilePredicate = mobileNumber -> mobileNumber.startsWith("91") && mobileNumber.length()==12;
 }

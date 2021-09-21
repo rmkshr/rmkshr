@@ -3,7 +3,18 @@ package com.rmkshr.functionalinterface;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+/**
+ * @author Ramkishore
+ */
 public class _Consumer {
+
+    //DECLARATIVE APPROACH  USING FUNCTIONAL INTERFACE
+    static Consumer<Employee> employeeConsumer = employee -> System.out.
+            println("DECLARATIVE +++ Please verify the updated details : " + employee.toString());
+    //BICONSUMER APPROACH
+    static BiConsumer<Employee, Boolean> employeeBooleanBiConsumer = (employee, showId) ->
+            System.out.println("DECLARATIVE +++ Thank you for registering Employee " + employee.name + " with Employee Id "
+                    + (showId ? employee.id : "****************"));
 
     public static void main(String[] args) {
 
@@ -22,19 +33,15 @@ public class _Consumer {
         System.out.println("IMPERATIVE +++ Please verify the updated details : " + employee.toString());
     }
 
-    //DECLARATIVE APPROACH  USING FUNCTIONAL INTERFACE
-    static Consumer<Employee> employeeConsumer = employee -> System.out.
-            println("DECLARATIVE +++ Please verify the updated details : " + employee.toString());
-
-    //BICONSUMER APPROACH
-    static BiConsumer<Employee, Boolean> employeeBooleanBiConsumer = (employee, showId) ->
-            System.out.println("DECLARATIVE +++ Thank you for registering Employee " + employee.name + " with Employee Id "
-                            + (showId ? employee.id : "****************"));
-
     //The Employee class
     static class Employee {
         private final String name;
         private final Long id;
+
+        public Employee(String name, Long id) {
+            this.name = name;
+            this.id = id;
+        }
 
         @Override
         public String toString() {
@@ -42,11 +49,6 @@ public class _Consumer {
                     "name='" + name + '\'' +
                     ", id=" + id +
                     '}';
-        }
-
-        public Employee(String name, Long id) {
-            this.name = name;
-            this.id = id;
         }
     }
 }

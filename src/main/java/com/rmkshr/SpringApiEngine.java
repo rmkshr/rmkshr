@@ -15,6 +15,9 @@ import java.util.ArrayList;
 
 import static com.rmkshr.springsecurity.utils.Constants.ROLE_ADMIN;
 
+/**
+ * @author Ramkishore
+ */
 @SpringBootApplication
 public class SpringApiEngine {
 
