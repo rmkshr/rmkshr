@@ -49,6 +49,17 @@ public class ApiSecurityController {
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
+//    /**
+//     * Get all roles api.
+//     *
+//     * @return Response ok with all roles.
+//     */
+//    @GetMapping("/getrole")
+//    public ResponseEntity getRole() {
+//        return ResponseEntity.ok().body(role.getUsers());
+//    }
+
+
     /**
      * Save user api.
      *
