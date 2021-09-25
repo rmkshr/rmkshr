@@ -16,6 +16,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class ApiController {
 
+    private final  DataAccessController dataAccessController;
     @GetMapping("/check")
     public String printMethod() {
         return "DOCKER CONTAINER RUN CHECK";
@@ -23,7 +24,6 @@ public class ApiController {
 
     @GetMapping("/info/movies")
     public String getMovieInfo() throws IOException {
-        DataAccessController dataAccessController = new DataAccessController();
         String movieData = dataAccessController.fetchAllData();
         return movieData;
     }
