@@ -56,11 +56,20 @@ public class ApiSecurityController {
      *
      * @return Response ok with all roles.
      */
-    @GetMapping("/getrole")
+    @GetMapping("/getallrole")
     public ResponseEntity getRole() {
         return ResponseEntity.ok().body(roleService.getRoles());
     }
 
+    /**
+     * Get all roles of a given user.
+     *
+     * @return Response ok with all roles of a given user.
+     */
+    @GetMapping("/getuserroles")
+    public ResponseEntity getUserRoles(@RequestBody String userName) {
+        return ResponseEntity.ok().body(userService.getUserRoles(userName));
+    }
 
     /**
      * Save user api.
@@ -85,6 +94,8 @@ public class ApiSecurityController {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/role/save").toUriString());
         return ResponseEntity.created(uri).body(roleService.saveRole(role));
     }
+
+
 
     /**
      * Assign a role to a user.

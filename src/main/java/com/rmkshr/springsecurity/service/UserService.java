@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserService {
     ApiUser saveUser(ApiUser user);
 
-
+    List<Role> getUserRoles(String username);
 
     void addRoleToApiUser(String userName, String roleName);
 

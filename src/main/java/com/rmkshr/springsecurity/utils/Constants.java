@@ -25,6 +25,7 @@ public class Constants {
     public static final String GET_ROLE_LOGGER = "Fetching all available roles";
     public static final String SAVE_ROLE_TO_USER_LOGGER = "Saving new role {} to user {}";
     public static final String FETCHING_USER_LOGGER = "Fetching user {}";
+    public static final String FETCHING_USER_ROLE_LOGGER = "Fetching all roles of the user{}";
     public static final String FETCHING_ALL_USER_LOGGER = "Fetching all users";
     public static final String USER_NOT_FOUND_LOGGER = "User not found in the Database";
     public static final String USER_NOT_FOUND_PARAM_LOGGER = "User found in the Database: {}";
