@@ -22,6 +22,7 @@ public class Constants {
     public static final String ROLE_ADMIN = "ROLE_ADMIN";
     public static final String SAVE_USER_LOGGER = "Saving new user {} to database";
     public static final String SAVE_ROLE_LOGGER = "Saving new role {} to database";
+    public static final String GET_ROLE_LOGGER = "Fetching all available roles";
     public static final String SAVE_ROLE_TO_USER_LOGGER = "Saving new role {} to user {}";
     public static final String FETCHING_USER_LOGGER = "Fetching user {}";
     public static final String FETCHING_ALL_USER_LOGGER = "Fetching all users";

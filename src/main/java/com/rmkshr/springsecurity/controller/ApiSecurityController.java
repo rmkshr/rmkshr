@@ -7,6 +7,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rmkshr.springsecurity.domain.ApiUser;
 import com.rmkshr.springsecurity.domain.Role;
+import com.rmkshr.springsecurity.service.RoleService;
 import com.rmkshr.springsecurity.service.UserService;
 import com.rmkshr.springsecurity.utils.Constants;
 import lombok.Data;
@@ -38,6 +39,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class ApiSecurityController {
 
     private final UserService userService;
+    private final RoleService roleService;
 
     /**
      * Get all user api.
@@ -49,15 +51,15 @@ public class ApiSecurityController {
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
-//    /**
-//     * Get all roles api.
-//     *
-//     * @return Response ok with all roles.
-//     */
-//    @GetMapping("/getrole")
-//    public ResponseEntity getRole() {
-//        return ResponseEntity.ok().body(role.getUsers());
-//    }
+    /**
+     * Get all roles api.
+     *
+     * @return Response ok with all roles.
+     */
+    @GetMapping("/getrole")
+    public ResponseEntity getRole() {
+        return ResponseEntity.ok().body(roleService.getRoles());
+    }
 
 
     /**
@@ -81,7 +83,7 @@ public class ApiSecurityController {
     @PostMapping("/role/save")
     public ResponseEntity<Role> saveRole(@RequestBody Role role) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/role/save").toUriString());
-        return ResponseEntity.created(uri).body(userService.saveRole(role));
+        return ResponseEntity.created(uri).body(roleService.saveRole(role));
     }
 
     /**

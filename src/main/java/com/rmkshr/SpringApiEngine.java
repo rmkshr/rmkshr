@@ -2,6 +2,7 @@ package com.rmkshr;
 
 import com.rmkshr.springsecurity.domain.ApiUser;
 import com.rmkshr.springsecurity.domain.Role;
+import com.rmkshr.springsecurity.service.RoleService;
 import com.rmkshr.springsecurity.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -9,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
@@ -31,9 +31,9 @@ public class SpringApiEngine {
     }
 
     @Bean
-    CommandLineRunner run(UserService userService) {
+    CommandLineRunner run(UserService userService, RoleService roleService) {
         return args -> {
-            userService.saveRole(new Role(null, "ROLE_ADMIN"));
+            roleService.saveRole(new Role(null, "ROLE_ADMIN"));
             userService.saveUser(new ApiUser(null, "Ramkishore", "rmkshr", "letmein", new ArrayList<Role>()));
             userService.addRoleToApiUser("rmkshr", ROLE_ADMIN);
         };

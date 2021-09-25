@@ -26,7 +26,7 @@ public class ApiUser {
     private String userName;
     private String password;
     //    @ManyToMany(fetch = FetchType.EAGER)
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Collection<Role> roles = new ArrayList<>();
 }

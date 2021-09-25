@@ -45,17 +45,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.save(user);
     }
 
-    /**
-     * Save role method.
-     *
-     * @param role
-     * @return
-     */
-    @Override
-    public Role saveRole(Role role) {
-        log.info(Constants.SAVE_ROLE_LOGGER, role.getName());
-        return roleRepository.save(role);
-    }
 
     /**
      * Add role to user method.
