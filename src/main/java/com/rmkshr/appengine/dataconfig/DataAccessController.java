@@ -6,6 +6,7 @@ import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.common.xcontent.ToXContent;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.io.IOException;
  * @author Ramkishore
  */
 @RequiredArgsConstructor
+@Controller
 public class DataAccessController {
 
     DataAccessConfiguration dataAccessConfiguration;

@@ -1,0 +1,15 @@
+Pure functional programming has a set of rules to follow
+================================================
+--> No State : The function should never change the state of objects declared outside a function and
+should never depend on the state of an object defined beyond the function.
+================================================
+--> Pure Functions
+================================================
+--> No Side effects : The change of state of an object outside the function should never impact this
+function and vice versa.
+================================================
+--> Higher Order Functions
+================================================================================================
+    *The function takes one or more functions as parameters.
+    *The function returns another function as well.
+================================================================================================
