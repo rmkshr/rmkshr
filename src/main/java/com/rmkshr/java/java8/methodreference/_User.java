@@ -6,6 +6,8 @@ public class _User {
     Integer age;
 
     public _User(_User user) {
+        this.name = user.name;
+        this.age = user.age;
     }
 
     public String getName() {
