@@ -57,6 +57,7 @@ public class MRMain {
         // As constructor in Java is a special method,
         // method reference could be applied to it too with the help of new as a method name.
         Stream<_User> streamMRC = people.stream().map(_User::new);
+        Stream<_User> streamMRCL = people.stream().map(user1 -> new _User(user1));
 
     }
 
