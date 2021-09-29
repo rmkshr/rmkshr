@@ -1,4 +1,4 @@
-package com.rmkshr.java.java8.methodreference;
+package com.rmkshr.javanewfeatures.java8.methodreference;
 
 public class _User {
 

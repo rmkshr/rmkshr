@@ -1,4 +1,4 @@
-package com.rmkshr.java.java8.staticanddefault;
+package com.rmkshr.javanewfeatures.java8.staticanddefault;
 
 public interface Vehicle {
 

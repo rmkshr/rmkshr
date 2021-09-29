@@ -1,9 +1,6 @@
-package com.rmkshr.java.java8.optional;
-
-import org.springframework.security.core.userdetails.User;
+package com.rmkshr.javanewfeatures.java8.optional;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.rmkshr.java.java8.optional;
+package com.rmkshr.javanewfeatures.java8.optional;
 
 import java.util.Optional;
 

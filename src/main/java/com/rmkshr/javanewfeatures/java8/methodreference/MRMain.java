@@ -1,6 +1,4 @@
-package com.rmkshr.java.java8.methodreference;
-
-import com.rmkshr.streams._Streams;
+package com.rmkshr.javanewfeatures.java8.methodreference;
 
 import java.util.List;
 import java.util.stream.Stream;
