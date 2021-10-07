@@ -22,5 +22,6 @@ public class NewStringMethods {
         List<String> sampeList = Arrays.asList("ram");
         sampeList.add("sugan");
         System.out.println(sampeList);
+        System.out.println("This is the end of line for the program");
     }
 }
