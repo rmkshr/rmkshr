@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class SwitchExpressionsPreview {
 
-    
+
     public static void main(String[] args) {
         DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
         String typeOfDay = "";
