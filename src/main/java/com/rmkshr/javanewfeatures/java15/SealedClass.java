@@ -1,5 +1,6 @@
 package com.rmkshr.javanewfeatures.java15;
 
+import lombok.Data;
 import lombok.NonNull;
 
 //the goal of sealed classes is to allow individual classes to declare which types may be used as sub-types.

@@ -1,4 +1,4 @@
-package com.rmkshr.springboot.repository;
+package com.rmkshr.springboot.student.repository;
 
 import com.rmkshr.springboot.student.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
