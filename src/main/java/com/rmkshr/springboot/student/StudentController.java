@@ -1,5 +1,6 @@
 package com.rmkshr.springboot.student;
 
+import com.rmkshr.springboot.student.entity.Student;
 import com.rmkshr.springboot.student.studentsercvice.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

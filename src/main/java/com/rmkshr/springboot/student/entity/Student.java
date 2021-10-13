@@ -1,4 +1,4 @@
-package com.rmkshr.springboot.student;
+package com.rmkshr.springboot.student.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;

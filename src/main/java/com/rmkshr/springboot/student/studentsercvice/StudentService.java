@@ -1,7 +1,7 @@
 package com.rmkshr.springboot.student.studentsercvice;
 
 import com.rmkshr.springboot.student.repository.StudentRepository;
-import com.rmkshr.springboot.student.Student;
+import com.rmkshr.springboot.student.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

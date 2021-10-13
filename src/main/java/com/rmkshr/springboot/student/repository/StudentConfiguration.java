@@ -1,6 +1,6 @@
 package com.rmkshr.springboot.student.repository;
 
-import com.rmkshr.springboot.student.Student;
+import com.rmkshr.springboot.student.entity.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
