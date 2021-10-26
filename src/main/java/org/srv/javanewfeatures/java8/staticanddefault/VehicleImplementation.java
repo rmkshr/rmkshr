@@ -1,5 +1,7 @@
 package org.srv.javanewfeatures.java8.staticanddefault;
 
+import static org.srv.javanewfeatures.java8.staticanddefault.Vehicle.*;
+
 public class VehicleImplementation implements Vehicle {
 
     // The static producer() method is available only through and inside of an interface.
