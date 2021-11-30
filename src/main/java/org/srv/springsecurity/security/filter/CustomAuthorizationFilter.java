@@ -1,4 +1,4 @@
-package org.srv.springsecurity.filter;
+package org.srv.springsecurity.security.filter;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;

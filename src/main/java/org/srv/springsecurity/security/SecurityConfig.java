@@ -1,7 +1,7 @@
 package org.srv.springsecurity.security;
 
-import org.srv.springsecurity.filter.CustomAuthenticationFilter;
-import org.srv.springsecurity.filter.CustomAuthorizationFilter;
+import org.srv.springsecurity.security.filter.CustomAuthenticationFilter;
+import org.srv.springsecurity.security.filter.CustomAuthorizationFilter;
 import org.srv.springsecurity.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
