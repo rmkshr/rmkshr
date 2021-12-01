@@ -12,7 +12,6 @@ import java.security.spec.KeySpec;
 
 public class AESUtils {
     public static final String algorithm = "AES/CBC/PKCS5Padding";
-//    public static final String algorithm = "AES/GCM/NoPadding";
 
     /**
      * This method is used to generate a secret key for encryption based on the provided password and salt value.
