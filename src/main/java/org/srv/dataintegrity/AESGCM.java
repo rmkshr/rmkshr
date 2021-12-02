@@ -1,6 +1,7 @@
 package org.srv.dataintegrity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.srv.SpringApiEngine;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.GCMParameterSpec;
@@ -9,8 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.logging.Logger;
 
 public class AESGCM {
+
+    public static final Logger logger = Logger.getLogger(AESGCM.class.getName());
 
 
     /**
