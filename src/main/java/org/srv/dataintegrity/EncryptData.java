@@ -1,13 +1,18 @@
 package org.srv.dataintegrity;
 
+import org.srv.SpringApiEngine;
+
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.logging.Logger;
 
 public class EncryptData {
+
+    public static final Logger logger = Logger.getLogger(EncryptData.class.getName());
 
     /**
      * Function used to encrypt data.

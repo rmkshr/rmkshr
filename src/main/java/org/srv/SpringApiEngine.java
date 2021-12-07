@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import static org.srv.springsecurity.utils.Constants.ROLE_ADMIN;
 
@@ -20,8 +21,10 @@ import static org.srv.springsecurity.utils.Constants.ROLE_ADMIN;
  */
 @SpringBootApplication
 public class SpringApiEngine {
+    public static final Logger logger = Logger.getLogger(SpringApiEngine.class.getName());
 
     public static void main(String[] args) {
+        logger.info("APPLICATION STARTS");
         SpringApplication.run(SpringApiEngine.class, args);
     }
 

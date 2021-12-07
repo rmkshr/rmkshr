@@ -29,4 +29,11 @@ public class EncryptionTest {
         System.out.println(plainText);
         Assertions.assertEquals(input, plainText);
     }
+
+    @Test
+    void testAESGCM() throws Exception {
+        String input = AESGCM.encryptData("SRV");
+        String output = AESGCM.decryptData(input);
+        Assertions.assertEquals("SRV",output);
+    }
 }
