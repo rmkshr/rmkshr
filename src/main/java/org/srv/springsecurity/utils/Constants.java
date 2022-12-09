@@ -29,4 +29,16 @@ public class Constants {
     public static final String FETCHING_ALL_USER_LOGGER = "Fetching all users";
     public static final String USER_NOT_FOUND_LOGGER = "User not found in the Database";
     public static final String USER_NOT_FOUND_PARAM_LOGGER = "User found in the Database: {}";
+    public static final String TEMP_FILE_PATH = "\"/Users/ramkishoremadheshwaran/Local/javatempfiles\"";
+    public static final String FILE_NAME = "file_demo";
+    public static final String FILE_FORMAT = ".txt";
+    public static final String FILE_CONTENT = "First, program, with, desktop, setup";
+    public static final String COMMA = ",";
+    public static final String LETTER_S = "s";
+    public static final String HEADING = "FILE MANIPULATION DATA : \n";
+    public static final String LINE_ONE = "BELOW FIVE LETTERS : ";
+    public static final String LINE_BREAKER = "\n";
+    public static final String LINE_TWO = "Starts With S : ";
+    public static final String LINE_THREE = "Letter Count : ";
+
 }

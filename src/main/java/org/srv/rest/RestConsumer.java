@@ -1,4 +1,4 @@
-package org.srv.practiceprograms;
+package org.srv.rest;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -19,7 +19,7 @@ public class RestConsumer {
 
             URL url = new URL(apiEndpoint);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
+            conn.setRequestMethod("POST");
             conn.setRequestProperty("Accept", "application/json");
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed : HTTP Error code : " + conn.getResponseCode());
