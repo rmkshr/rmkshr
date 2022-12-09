@@ -35,9 +35,10 @@ public class _Streams {
         //THE BELOW CODE IS TO DEMONSTRATE THE USAGE OF FUNCTIONAL PROGRAMING IN STREAMS API
         Predicate<Person> male = person -> person.gender.equals(MALE);
         Consumer<Person> personConsumer = person -> System.out.println(person.toString());
-        people.stream().filter(male).collect(Collectors.toList()).forEach(personConsumer);
+        people.stream().filter(male).toList().forEach(personConsumer);
 
         Consumer<Gender> genderConsumer = gender -> System.out.println(gender);
+//        Consumer<Gender> genderConsumer = System.out::println;
         people.stream().map(person -> person.gender).collect(Collectors.toSet()).forEach(genderConsumer);
 
         ToIntFunction<Person> personToIntFunction = person -> person.name.length();
