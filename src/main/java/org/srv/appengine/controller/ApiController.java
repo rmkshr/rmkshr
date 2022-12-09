@@ -24,8 +24,7 @@ public class ApiController {
 
     @GetMapping("/info/movies")
     public String getMovieInfo() throws IOException {
-        String movieData = dataAccessController.fetchAllData();
-        return movieData;
+        return dataAccessController.fetchAllData();
     }
 
 
