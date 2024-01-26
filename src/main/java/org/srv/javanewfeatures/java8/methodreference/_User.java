@@ -2,40 +2,40 @@ package org.srv.javanewfeatures.java8.methodreference;
 
 public class _User {
 
-    String name;
-    Integer age;
+  String name;
+  Integer age;
 
-    public _User(_User user) {
-        this.name = user.name;
-        this.age = user.age;
-    }
+  public _User(_User user) {
+    this.name = user.name;
+    this.age = user.age;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public _User(String name, Integer age) {
+    this.name = name;
+    this.age = age;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public Integer getAge() {
-        return age;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+  public Integer getAge() {
+    return age;
+  }
 
-    @Override
-    public String toString() {
-        return "_User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+  public void setAge(Integer age) {
+    this.age = age;
+  }
 
-    public _User(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
+  @Override
+  public String toString() {
+    return "_User{" +
+        "name='" + name + '\'' +
+        ", age=" + age +
+        '}';
+  }
 }
