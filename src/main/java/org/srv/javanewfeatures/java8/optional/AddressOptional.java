@@ -4,72 +4,73 @@ import java.util.Optional;
 
 public class AddressOptional {
 
-    Integer streetNumber;
-    String streetName;
-    String country;
-    Integer zipCode;
-    String state;
+  Integer streetNumber;
+  String streetName;
+  String country;
+  Integer zipCode;
+  String state;
 
-    public Integer getStreetNumber() {
-        return streetNumber;
-    }
+  public AddressOptional(Integer streetNumber, String streetName, String state, String country,
+      Integer zipCode) {
+    this.streetNumber = streetNumber;
+    this.streetName = streetName;
+    this.state = state;
+    this.country = country;
+    this.zipCode = zipCode;
+  }
 
-    public void setStreetNumber(Integer streetNumber) {
-        this.streetNumber = streetNumber;
-    }
+  public Integer getStreetNumber() {
+    return streetNumber;
+  }
 
-    public String getStreetName() {
-        return streetName;
-    }
+  public void setStreetNumber(Integer streetNumber) {
+    this.streetNumber = streetNumber;
+  }
 
-    public Optional<String> getStreetNameOptional() {
-        return Optional.of(streetName);
-    }
+  public String getStreetName() {
+    return streetName;
+  }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
+  public void setStreetName(String streetName) {
+    this.streetName = streetName;
+  }
 
-    public String getState() {
-        return state;
-    }
+  public Optional<String> getStreetNameOptional() {
+    return Optional.of(streetName);
+  }
 
-    public void setState(String state) {
-        this.state = state;
-    }
+  public String getState() {
+    return state;
+  }
 
-    public String getCountry() {
-        return country;
-    }
+  public void setState(String state) {
+    this.state = state;
+  }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+  public String getCountry() {
+    return country;
+  }
 
-    public Integer getZipCode() {
-        return zipCode;
-    }
+  public void setCountry(String country) {
+    this.country = country;
+  }
 
-    public void setZipCode(Integer zipCode) {
-        this.zipCode = zipCode;
-    }
+  public Integer getZipCode() {
+    return zipCode;
+  }
 
-    public AddressOptional(Integer streetNumber, String streetName, String state, String country, Integer zipCode) {
-        this.streetNumber = streetNumber;
-        this.streetName = streetName;
-        this.state = state;
-        this.country = country;
-        this.zipCode = zipCode;
-    }
+  public void setZipCode(Integer zipCode) {
+    this.zipCode = zipCode;
+  }
 
-    @Override
-    public String toString() {
-        return "AddressOptional{" +
-                "streetNumber=" + streetNumber +
-                ", streetName='" + streetName + '\'' +
-                ", country='" + country + '\'' +
-                ", zipCode=" + zipCode +
-                ", state='" + state + '\'' +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "AddressOptional{" +
+        "streetNumber=" + streetNumber +
+        ", streetName='" + streetName + '\'' +
+        ", country='" + country + '\'' +
+        ", zipCode=" + zipCode +
+        ", state='" + state + '\'' +
+        '}';
+  }
 }

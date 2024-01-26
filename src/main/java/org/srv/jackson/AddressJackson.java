@@ -1,40 +1,41 @@
 package org.srv.jackson;
 
 public class AddressJackson {
-    private String street;
-    private String city;
-    private int zipCode;
 
-    public String getStreet() {
-        return street;
-    }
+  private String street;
+  private String city;
+  private int zipCode;
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
+  public String getStreet() {
+    return street;
+  }
 
-    public String getCity() {
-        return city;
-    }
+  public void setStreet(String street) {
+    this.street = street;
+  }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+  public String getCity() {
+    return city;
+  }
 
-    public int getZipCode() {
-        return zipCode;
-    }
+  public void setCity(String city) {
+    this.city = city;
+  }
 
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
-    }
+  public int getZipCode() {
+    return zipCode;
+  }
 
-    @Override
-    public String toString() {
-        return "AddressJackson{" +
-                "street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", zipCode=" + zipCode +
-                '}';
-    }
+  public void setZipCode(int zipCode) {
+    this.zipCode = zipCode;
+  }
+
+  @Override
+  public String toString() {
+    return "AddressJackson{" +
+        "street='" + street + '\'' +
+        ", city='" + city + '\'' +
+        ", zipCode=" + zipCode +
+        '}';
+  }
 }

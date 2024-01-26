@@ -5,90 +5,91 @@ import java.util.Arrays;
 import java.util.Map;
 
 public class EmployeeJackson {
-    private int id;
-    private String name;
-    private int age;
-    private BigDecimal salary;
-    private String designation;
-    private AddressJackson address;
-    private long[] phoneNumbers;
-    private Map<String, String> personalInformation;
 
-    public int getId() {
-        return id;
-    }
+  private int id;
+  private String name;
+  private int age;
+  private BigDecimal salary;
+  private String designation;
+  private AddressJackson address;
+  private long[] phoneNumbers;
+  private Map<String, String> personalInformation;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public int getId() {
+    return id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public int getAge() {
-        return age;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+  public int getAge() {
+    return age;
+  }
 
-    public BigDecimal getSalary() {
-        return salary;
-    }
+  public void setAge(int age) {
+    this.age = age;
+  }
 
-    public void setSalary(BigDecimal salary) {
-        this.salary = salary;
-    }
+  public BigDecimal getSalary() {
+    return salary;
+  }
 
-    public String getDesignation() {
-        return designation;
-    }
+  public void setSalary(BigDecimal salary) {
+    this.salary = salary;
+  }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
-    }
+  public String getDesignation() {
+    return designation;
+  }
 
-    public AddressJackson getAddress() {
-        return address;
-    }
+  public void setDesignation(String designation) {
+    this.designation = designation;
+  }
 
-    public void setAddress(AddressJackson address) {
-        this.address = address;
-    }
+  public AddressJackson getAddress() {
+    return address;
+  }
 
-    public long[] getPhoneNumbers() {
-        return phoneNumbers;
-    }
+  public void setAddress(AddressJackson address) {
+    this.address = address;
+  }
 
-    public void setPhoneNumbers(long[] phoneNumbers) {
-        this.phoneNumbers = phoneNumbers;
-    }
+  public long[] getPhoneNumbers() {
+    return phoneNumbers;
+  }
 
-    public Map<String, String> getPersonalInformation() {
-        return personalInformation;
-    }
+  public void setPhoneNumbers(long[] phoneNumbers) {
+    this.phoneNumbers = phoneNumbers;
+  }
 
-    public void setPersonalInformation(Map<String, String> personalInformation) {
-        this.personalInformation = personalInformation;
-    }
+  public Map<String, String> getPersonalInformation() {
+    return personalInformation;
+  }
 
-    @Override
-    public String toString() {
-        return "EmployeeJackson{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                ", designation='" + designation + '\'' +
-                ", address=" + address +
-                ", phoneNumbers=" + Arrays.toString(phoneNumbers) +
-                ", personalInformation=" + personalInformation +
-                '}';
-    }
+  public void setPersonalInformation(Map<String, String> personalInformation) {
+    this.personalInformation = personalInformation;
+  }
+
+  @Override
+  public String toString() {
+    return "EmployeeJackson{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", age=" + age +
+        ", salary=" + salary +
+        ", designation='" + designation + '\'' +
+        ", address=" + address +
+        ", phoneNumbers=" + Arrays.toString(phoneNumbers) +
+        ", personalInformation=" + personalInformation +
+        '}';
+  }
 }

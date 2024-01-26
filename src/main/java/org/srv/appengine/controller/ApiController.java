@@ -1,12 +1,11 @@
 package org.srv.appengine.controller;
 
-import org.srv.appengine.dataconfig.DataAccessController;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.IOException;
+import org.srv.appengine.dataconfig.DataAccessController;
 
 /**
  * @author Ramkishore
@@ -16,18 +15,18 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class ApiController {
 
-    private final  DataAccessController dataAccessController;
+  private final DataAccessController dataAccessController;
 
-    @GetMapping("/check")
-    public String printMethod() {
-        return "DOCKER CONTAINER RUN CHECK";
-    }
+  @GetMapping("/check")
+  public String printMethod() {
+    return "DOCKER CONTAINER RUN CHECK";
+  }
 
-    @GetMapping("/info/movies")
-    public String getMovieInfo() throws IOException {
-        String movieData = dataAccessController.fetchAllData();
-        return movieData;
-    }
+  @GetMapping("/info/movies")
+  public String getMovieInfo() throws IOException {
+    String movieData = dataAccessController.fetchAllData();
+    return movieData;
+  }
 
 
 }

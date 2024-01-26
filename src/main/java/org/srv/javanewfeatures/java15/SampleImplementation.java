@@ -4,8 +4,8 @@ package org.srv.javanewfeatures.java15;
 
 public non-sealed class SampleImplementation implements SealedClass {
 
-    public static void main(String[] args) {
-        SealedClass sealedClass = new SampleImplementation();
-        System.out.println(sealedClass.dataSet);
-    }
+  public static void main(String[] args) {
+    SealedClass sealedClass = new SampleImplementation();
+    System.out.println(sealedClass.dataSet);
+  }
 }

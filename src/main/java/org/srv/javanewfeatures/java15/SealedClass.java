@@ -8,8 +8,8 @@ import lombok.NonNull;
 
 public sealed interface SealedClass permits SampleImplementation {
 
-    @NonNull
-    String dataSet = "MORGAN_DATA_CENTER";
+  @NonNull
+  String dataSet = "MORGAN_DATA_CENTER";
 
 }
 

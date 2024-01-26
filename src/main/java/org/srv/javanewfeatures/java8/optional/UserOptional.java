@@ -4,53 +4,53 @@ import java.util.Optional;
 
 public class UserOptional {
 
-    String name;
-    Double mobileNumber;
-    AddressOptional address;
+  String name;
+  Double mobileNumber;
+  AddressOptional address;
 
-    public String getName() {
-        return name;
-    }
+  public UserOptional(String name, Double mobileNumber, AddressOptional address) {
+    this.name = name;
+    this.mobileNumber = mobileNumber;
+    this.address = address;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public UserOptional() {
+  }
 
-    public Double getMobileNumber() {
-        return mobileNumber;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setMobileNumber(Double mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public AddressOptional getAddress() {
-        return address;
-    }
+  public Double getMobileNumber() {
+    return mobileNumber;
+  }
 
-    public Optional<AddressOptional> getAddressOptional() {
-        return Optional.of(address);
-    }
+  public void setMobileNumber(Double mobileNumber) {
+    this.mobileNumber = mobileNumber;
+  }
 
-    public void setAddress(AddressOptional address) {
-        this.address = address;
-    }
+  public AddressOptional getAddress() {
+    return address;
+  }
 
-    public UserOptional(String name, Double mobileNumber, AddressOptional address) {
-        this.name = name;
-        this.mobileNumber = mobileNumber;
-        this.address = address;
-    }
+  public void setAddress(AddressOptional address) {
+    this.address = address;
+  }
 
-    public UserOptional() {
-    }
+  public Optional<AddressOptional> getAddressOptional() {
+    return Optional.of(address);
+  }
 
-    @Override
-    public String toString() {
-        return "_UserOptional{" +
-                "name='" + name + '\'' +
-                ", mobileNumber=" + mobileNumber +
-                ", address=" + address.toString() +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "_UserOptional{" +
+        "name='" + name + '\'' +
+        ", mobileNumber=" + mobileNumber +
+        ", address=" + address.toString() +
+        '}';
+  }
 }
